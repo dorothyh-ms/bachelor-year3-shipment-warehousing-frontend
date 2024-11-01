@@ -15,6 +15,7 @@ import AuthContextProvider from "./context/AuthContextProvider.tsx";
 import {RequireAuth} from "./components/RequireAuth.tsx";
 import PurchaseOrdersPage from "./pages/PurchaseOrdersPage.tsx";
 import {TRUCKS, CREATE_APPOINTMENT, PURCHASE_ORDERS, WAREHOUSES} from "./routes.ts";
+import WarehouseDetailPage from "./pages/WarehouseDetailPage.tsx";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,7 @@ const router = createBrowserRouter(
                 <Route path={TRUCKS} element={<TruckArrivalsPage/>}/>
                 <Route path={CREATE_APPOINTMENT} element={<CreateAppointmentPage/>}/>
                 <Route index path={WAREHOUSES} element={<WarehousesPage/>}/>
+                <Route path={WAREHOUSES+"/:id"} element={<WarehouseDetailPage/>}/>
                 <Route path={PURCHASE_ORDERS} element={<PurchaseOrdersPage/>}/>
             </Route>
         </Route>

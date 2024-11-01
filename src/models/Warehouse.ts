@@ -12,5 +12,5 @@ export type Warehouse = {
     material: Material,
     sellerName: string,
     sellerId: string,
-    activities?: WarehouseActivity[]
+    warehouseActivities?: WarehouseActivity[]
 }
