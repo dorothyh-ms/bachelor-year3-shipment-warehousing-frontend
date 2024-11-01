@@ -7,6 +7,7 @@ import {useEffect, useState} from "react";
 import {PurchaseOrderQueryFilter} from "../services/purchaseOrdersService.ts";
 import SellerFilter from "../components/SellerFilter/SellerFilter.tsx";
 import {grey} from "@mui/material/colors";
+import {PurchaseOrder} from "../models/PurchaseOrder.ts";
 
 const PurchaseOrdersPage = () => {
     const [purchaseOrderFilter, setPurchaseOrderFilter] = useState<PurchaseOrderQueryFilter>();
@@ -27,6 +28,13 @@ const PurchaseOrdersPage = () => {
         })
 
     }, [selectedSeller]);
+
+    const renderPurchaseOrderStats = (purchaseOrders: PurchaseOrder[]) => {
+        return <Stack direction={"column"} sx={{ gap: 0.5}} >
+            <Typography variant={"subtitle1"} >Fulfilled: {purchaseOrders.filter(po => po.status === "FULFILLED").length}</Typography>
+            <Typography variant={"subtitle1"} >Outstanding: {purchaseOrders.filter(po => po.status === "OUTSTANDING").length}</Typography>
+        </Stack>
+    }
 
     const renderFilterControls = () => {
         return <Stack direction={"row"} sx={{justifyContent: "space-between"}}>
@@ -57,7 +65,7 @@ const PurchaseOrdersPage = () => {
             width: {xs: "90%", sm: "75%", md: "50%", xl: "30%"},
             gap: 1,
         }}>
-
+            {purchaseOrders && renderPurchaseOrderStats(purchaseOrders)}
             {purchaseOrders && renderFilterControls()}
             {purchaseOrders && renderPurchaseOrders()}
             {

@@ -47,8 +47,9 @@ const WarehouseDetailPage = () => {
                                 }}>{formatEnum(warehouse.material)}</Typography>
                             </CardContent>
                         </Card>
-                        <List component={Paper}>
-                            {warehouse.warehouseActivities?.map((activity, ix) =>
+                        <Typography variant={"h6"}>Activities</Typography>
+                        {warehouse.warehouseActivities && warehouse.warehouseActivities.length ? <List component={Paper}>
+                            {warehouse.warehouseActivities.map((activity, ix) =>
                                 <>
                                     <ListItem>
                                         <ListItemText primary={<Typography
@@ -62,7 +63,7 @@ const WarehouseDetailPage = () => {
                                     {(ix != numberOfActivites-1) && <Divider />}
                                 </>)
                             }
-                        </List>
+                        </List> : "No activities found for this warehouse."}
                     </>
                 }
             </Stack>

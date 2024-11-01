@@ -1,5 +1,6 @@
 
 export type Appointment = {
+    id: string;
     timeSlotStart: string;
     truckLicensePlate: string,
     material: string,
@@ -14,3 +15,8 @@ export type NewAppointment = {
     sellerName: string;
     material: string;
 }
+
+export type UpdateAppointment = {
+    timeSlotStart: string;
+}
+
