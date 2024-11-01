@@ -1,9 +1,9 @@
 
 import axiosApi from "../api/axios.ts";
-import {PurchaseOrder, PurchaseOrderStatus} from "../models/PurchaseOrder.ts";
+import {PurchaseOrder} from "../models/PurchaseOrder.ts";
 
 export interface PurchaseOrderQueryFilter {
-    status?: PurchaseOrderStatus; // Added a colon here
+    status?: string; // Added a colon here
     sellerName?: string;
 }
 

@@ -1,10 +1,10 @@
 import {useQuery} from "react-query";
 import {getWarehouseById, getWarehouses} from "../services/warehousesService.ts";
 
-export function useWarehouses() {
+export function useWarehouses( sellerName?: string) {
     const {isLoading, isError, data: warehouses} = useQuery({
-        queryKey: ['warehouses'],
-        queryFn: () => getWarehouses()
+        queryKey: ['warehouses', sellerName],
+        queryFn: () => getWarehouses(sellerName)
     })
 
     return {
