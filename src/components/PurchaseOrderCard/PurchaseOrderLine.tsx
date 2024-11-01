@@ -1,6 +1,6 @@
 import {OrderLine} from "../../models/PurchaseOrder.ts";
 import {Box, Stack, Typography} from "@mui/material";
-import {initCap} from "../../utils/initCap.ts";
+import {formatEnum} from "../../utils/formatEnum.ts";
 
 interface PurchaseOrderLineProps {
     purchaseOrderLine : OrderLine
@@ -8,7 +8,7 @@ interface PurchaseOrderLineProps {
 const PurchaseOrderLine =(props: PurchaseOrderLineProps) => {
    const {purchaseOrderLine} = props;
     return <Stack direction="row" sx={{justifyContent: "space-between", p: 0.5}}>
-        <Typography>{initCap(purchaseOrderLine.material)}</Typography>
+        <Typography>{formatEnum(purchaseOrderLine.material)}</Typography>
         <Typography>{purchaseOrderLine.amountTons} tons</Typography>
     </Stack>
 }

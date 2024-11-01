@@ -4,7 +4,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import {initCap} from "../../utils/initCap.ts";
+import {formatEnum} from "../../utils/formatEnum.ts";
 
 
 interface PurchaseOrderStatusFilterProps{
@@ -29,7 +29,7 @@ const PurchaseOrderStatusFilter = (props: PurchaseOrderStatusFilterProps) => {
         >
             {Object.values(Object.keys(PurchaseOrderStatus).filter(key => !isNaN(Number(PurchaseOrderStatus[key])))).map((value) => (
                 <MenuItem key={value} value={value}>
-                    {initCap(value)}
+                    {formatEnum(value)}
                 </MenuItem>
             ))}
 

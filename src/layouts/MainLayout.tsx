@@ -30,12 +30,34 @@ const pages: PageData[] = [
         route: TRUCKS,
         icon: <CalendarMonthIcon/>
     },
+    {
+        title: "Create appointment",
+        route: CREATE_APPOINTMENT,
+        icon: <CalendarMonthIcon/>
+    },
 ]
+
 
 const MainLayout = () => {
     const {logout} = useContext(AuthContext);
     const navigate = useNavigate();
 
+
+    const renderPageLinks = () => {
+        return <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
+            {
+                pages.map((page) => (
+                    <Button
+                        color="secondary"
+                        onClick={() => {
+                            navigate(page.route);
+                        }}>
+                        {page.title}
+                    </Button>
+                ))
+            }
+        </Box>
+    }
 
     return (
 
@@ -43,24 +65,11 @@ const MainLayout = () => {
             <AppBar position="static" sx={{mb: 4}}>
                 <Toolbar sx={{width: "100%", justifyContent: "space-between"}}>
 
-                    <Stack direction="row" sx={{gap: 2}} >
+                    <Stack direction="row" sx={{gap: 2}}>
                         <Typography variant="h6" component="div" sx={{flexGrow: 1}}>
                             Krystal Distribution Group
                         </Typography>
-                        <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
-                            {
-                                pages.map((page) => (
-                                    <Button
-                                        color="secondary"
-                                        onClick={() => {
-                                            navigate(page.route);
-                                        }}>
-                                        {page.title}
-                                    </Button>
-                                ))
-                            }
-
-                        </Box>
+                        {renderPageLinks()}
                     </Stack>
                     <Button sx={{justifySelf: "end"}} color="inherit" onClick={logout}>Logout</Button>
                 </Toolbar>

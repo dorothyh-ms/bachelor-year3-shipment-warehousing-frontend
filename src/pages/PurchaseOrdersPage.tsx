@@ -1,5 +1,5 @@
 import PageLayout from "../layouts/PageLayout.tsx";
-import {Divider, Paper, Stack, Typography} from "@mui/material";
+import {CircularProgress, Divider, Paper, Stack, Typography} from "@mui/material";
 import {usePurchaseOrders} from "../hooks/usePurchaseOrders.ts";
 import PurchaseOrderCard from "../components/PurchaseOrderCard/PurchaseOrderCard.tsx";
 import PurchaseOrderStatusFilter from "../components/PurchaseOrderStatusFilter/PurchaseOrderStatusFilter.tsx";
@@ -38,6 +38,7 @@ const PurchaseOrdersPage = () => {
 
     const renderPurchaseOrders = () => {
         return <Paper sx={{display: "flex", flexDirection: "column", width: "100%"}}>
+
             {
                 purchaseOrders && purchaseOrders.map((po, ix) => {
                         return <>
@@ -54,12 +55,17 @@ const PurchaseOrdersPage = () => {
     return <PageLayout title={"Purchase orders"}>
         <Stack sx={{
             width: {xs: "90%", sm: "75%", md: "50%", xl: "30%"},
-            gap: 1
+            gap: 1,
         }}>
-            {renderFilterControls()}
+
+            {purchaseOrders && renderFilterControls()}
             {purchaseOrders && renderPurchaseOrders()}
             {
-                purchaseOrders && (purchaseOrders.length < 1) && <Typography color={grey[500]} >No purchase orders found.</Typography>
+                purchaseOrders && (purchaseOrders.length < 1) &&
+                <Typography color={grey[500]}>No purchase orders found.</Typography>
+            }
+            {
+                isLoading && <CircularProgress sx={{alignSelf: "center"}} color={'secondary'}/>
             }
         </Stack>
     </PageLayout>;

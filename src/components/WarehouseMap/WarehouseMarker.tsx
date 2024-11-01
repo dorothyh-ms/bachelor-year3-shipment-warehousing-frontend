@@ -1,6 +1,6 @@
 import {Warehouse} from "../../models/Warehouse.ts";
 import {Stack, Typography} from "@mui/material";
-import {initCap} from "../../utils/initCap.ts";
+import {formatEnum} from "../../utils/formatEnum.ts";
 import {grey, red} from "@mui/material/colors";
 import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 
@@ -55,7 +55,7 @@ const WarehouseMarker = (props: WarehouseMarkerProps) => {
     >
 
         <Typography variant="overline" sx={{m: 0}}>{warehouse.sellerName}</Typography>
-        <Typography variant="caption">Content: {initCap(warehouse.material.toString())}</Typography>
+        <Typography variant="caption">Content: {formatEnum(warehouse.material.toString())}</Typography>
         <Typography variant="caption">Stock: {warehouse.amountTons} tons</Typography>
         {
             (warehouse.amountTons >= warehouse.maxCapacityTons) &&

@@ -33,7 +33,7 @@ const SellerFilter = (props: SellerFilterProps) => {
                 onChange={(event: SelectChangeEvent) => {
                     setSelectedSeller(event.target.value);
                 }}
-                sx={{backgroundColor: "white"}}
+                sx={{backgroundColor: "white", width: "16em"}}
             >
 
                 {sellers.map(seller => (

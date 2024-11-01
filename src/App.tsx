@@ -2,7 +2,6 @@
 import {createBrowserRouter, createRoutesFromElements, Route} from "react-router-dom";
 import MainLayout from "./layouts/MainLayout.tsx";
 import {RouterProvider} from "react-router";
-import HomePage from "./pages/HomePage.tsx";
 
 import {CssBaseline, ThemeProvider} from "@mui/material";
 

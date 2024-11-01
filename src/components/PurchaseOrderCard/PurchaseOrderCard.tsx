@@ -2,7 +2,7 @@ import {PurchaseOrder, PurchaseOrderStatus} from "../../models/PurchaseOrder.ts"
 import {Box, Chip, Stack, Typography} from "@mui/material";
 import dayjs from "dayjs";
 import {grey} from "@mui/material/colors";
-import {initCap} from "../../utils/initCap.ts";
+import {formatEnum} from "../../utils/formatEnum.ts";
 import PurchaseOrderDetail from "./PurchaseOrderDetail.tsx";
 import PurchaseOrderLine from "./PurchaseOrderLine.tsx";
 
@@ -31,7 +31,7 @@ const PurchaseOrderCard = (props: PurchaseOrderCardProps) => {
             </Stack>
             <Box sx={{width: "25%", display: "flex", justifyContent: "end" }}>
                 <Chip color={purchaseOrder.status === PurchaseOrderStatus[PurchaseOrderStatus.FULFILLED] ? "success" : "error"}
-                      label={initCap(purchaseOrder.status.toString())}/>
+                      label={formatEnum(purchaseOrder.status.toString())}/>
             </Box>
 
         </Box>)
