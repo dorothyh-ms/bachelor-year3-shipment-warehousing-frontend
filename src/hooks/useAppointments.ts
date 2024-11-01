@@ -1,10 +1,10 @@
 import {useQuery} from "react-query";
 import {getAppointments} from "../services/appointmentsService.ts";
 
-export function useAppointments(sellerId : number) {
+export function useAppointments( ) {
     const {isLoading, isError, data: appointments} = useQuery({
-        queryKey: ['appointments', sellerId],
-        queryFn: () => getAppointments(sellerId)
+        queryKey: ['appointments',],
+        queryFn: () => getAppointments()
     })
 
     return {

@@ -3,7 +3,7 @@ import {AppBar, Box, Button, Stack, Toolbar, Typography} from "@mui/material";
 
 import AuthContext from "../context/AuthContext.ts";
 import {ReactNode, useContext} from "react";
-import {APPOINTMENTS, PURCHASE_ORDERS, WAREHOUSES} from "../routes.ts";
+import {TRUCKS, PURCHASE_ORDERS, WAREHOUSES, CREATE_APPOINTMENT} from "../routes.ts";
 import WarehouseIcon from '@mui/icons-material/Warehouse';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
@@ -26,10 +26,10 @@ const pages: PageData[] = [
         icon: <WarehouseIcon/>
     },
     {
-        title: "Appointments",
-        route: APPOINTMENTS,
+        title: "Truck arrivals",
+        route: TRUCKS,
         icon: <CalendarMonthIcon/>
-    }
+    },
 ]
 
 const MainLayout = () => {

@@ -7,7 +7,7 @@ import HomePage from "./pages/HomePage.tsx";
 import {CssBaseline, ThemeProvider} from "@mui/material";
 
 import CreateAppointmentPage from "./pages/CreateAppointmentPage.tsx";
-import AppointmentsPage from "./pages/AppointmentsPage.tsx";
+import TruckArrivalsPage from "./pages/TruckArrivalsPage.tsx";
 import {QueryClient, QueryClientProvider} from "react-query";
 import theme from "./theme.ts";
 import WarehousesPage from "./pages/WarehousesPage.tsx";
@@ -15,7 +15,7 @@ import WarehousesPage from "./pages/WarehousesPage.tsx";
 import AuthContextProvider from "./context/AuthContextProvider.tsx";
 import {RequireAuth} from "./components/RequireAuth.tsx";
 import PurchaseOrdersPage from "./pages/PurchaseOrdersPage.tsx";
-import {APPOINTMENTS, CREATE_APPOINTMENT, PURCHASE_ORDERS, WAREHOUSES} from "./routes.ts";
+import {TRUCKS, CREATE_APPOINTMENT, PURCHASE_ORDERS, WAREHOUSES} from "./routes.ts";
 
 const queryClient = new QueryClient();
 
@@ -25,10 +25,9 @@ const router = createBrowserRouter(
 
         <Route element={<RequireAuth />}>
             <Route element={<MainLayout/>}>
-                <Route index element={<HomePage/>}/>
-                <Route path={APPOINTMENTS} element={<AppointmentsPage/>}/>
+                <Route path={TRUCKS} element={<TruckArrivalsPage/>}/>
                 <Route path={CREATE_APPOINTMENT} element={<CreateAppointmentPage/>}/>
-                <Route path={WAREHOUSES} element={<WarehousesPage/>}/>
+                <Route index path={WAREHOUSES} element={<WarehousesPage/>}/>
                 <Route path={PURCHASE_ORDERS} element={<PurchaseOrdersPage/>}/>
             </Route>
         </Route>
