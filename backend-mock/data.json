@@ -1,0 +1,53 @@
+{
+  "appointments": [
+    {
+      "material": "slag",
+      "date": "2024-01-01",
+      "hour": 14,
+      "sellerId": 1,
+      "licensePlate": "ppp-pppp-pp"
+    },
+    {
+      "material": "slag",
+      "date": "2024-01-02",
+      "hour": 14,
+      "sellerId": 1,
+      "licensePlate": "ppp-pppp-pp"
+    },
+    {
+      "material": "slag",
+      "date": "2024-01-03",
+      "hour": 14,
+      "sellerId": 1,
+      "licensePlate": "ppp-pppp-pp"
+    },
+    {
+      "material": "petcoke",
+      "date": "2024-01-02",
+      "hour": 1,
+      "sellerId": 2,
+      "licensePlate": "lll-llll-ll"
+    }
+  ],
+  "materials": [
+    {
+      "id":1,
+      "name":"slag"
+    },
+    {
+      "id":2,
+      "name":"petcoke"
+    },
+    {
+      "id":3,
+      "name":"cement"
+    }
+  ],
+
+  "warehouses": [
+    {
+      "x": "0",
+      "y":10
+    }
+  ]
+}

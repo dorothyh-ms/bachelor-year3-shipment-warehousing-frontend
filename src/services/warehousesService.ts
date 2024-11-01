@@ -1,0 +1,13 @@
+
+import axiosApi from "../api/axios.ts";
+import {Warehouse} from "../models/Warehouse.ts";
+
+export async function getWarehouses() : Promise<Warehouse[]>   {
+    const {data: warehouses} = await axiosApi.get<Warehouse[]>(`/warehouse-projections`);
+    return warehouses;
+}
+
+export async function getWarehouseById(warehouseId: string) : Promise<Warehouse>   {
+    const {data: warehouses} = await axiosApi.get<Warehouse>(`/warehouses/${warehouseId}`);
+    return warehouses;
+}
