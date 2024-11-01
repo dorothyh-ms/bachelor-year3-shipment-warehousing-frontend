@@ -1,5 +1,5 @@
 import {PurchaseOrderStatus} from "../../models/PurchaseOrder.ts";
-import * as React from 'react';
+
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -27,7 +27,6 @@ const PurchaseOrderStatusFilter = (props: PurchaseOrderStatusFilterProps) => {
             }}
             sx={{backgroundColor: "white"}}
         >
-
             {Object.values(Object.keys(PurchaseOrderStatus).filter(key => !isNaN(Number(PurchaseOrderStatus[key])))).map((value) => (
                 <MenuItem key={value} value={value}>
                     {initCap(value)}

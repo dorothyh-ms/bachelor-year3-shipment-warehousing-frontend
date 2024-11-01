@@ -5,7 +5,7 @@ import WarehouseMarker from "./WarehouseMarker.tsx";
 const mapWidth = 800;
 
 interface WarehouseMapProps {
-    warehouses: Warehouse[]
+    warehouses?: Warehouse[]
 
 }
 
@@ -29,7 +29,7 @@ const WarehouseMap = (props: WarehouseMapProps) => {
                 width: `${mapWidth}px`
             }}>
                 {
-                    warehouses.map(((warehouse) =>
+                    warehouses && warehouses.map(((warehouse) =>
                                 <WarehouseMarker warehouse={warehouse}/>
                         )
                     )

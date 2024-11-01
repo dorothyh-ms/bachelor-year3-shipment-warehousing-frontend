@@ -9,15 +9,12 @@ import {Box} from "@mui/material";
 
 
 const WarehousesPage = () => {
-
     const [selectedSeller, setSelectedSeller] = useState<string>();
     const {warehouses, isLoading, isError} = useWarehouses(selectedSeller);
     return <PageLayout title={"Warehouses"}>
         <Box>
             <SellerFilter selectedSeller={selectedSeller} setSelectedSeller={setSelectedSeller}/>
-            {warehouses &&
-                <WarehouseMap warehouses={warehouses}/>
-            }
+            <WarehouseMap warehouses={warehouses}/>
         </Box>
     </PageLayout>
 }
