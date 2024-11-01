@@ -17,6 +17,6 @@ export type NewAppointment = {
 }
 
 export type UpdateAppointment = {
-    timeSlotStart: string;
+    timeSlot: string;
 }
 

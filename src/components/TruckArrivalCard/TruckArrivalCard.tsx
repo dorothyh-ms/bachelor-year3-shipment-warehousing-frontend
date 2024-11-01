@@ -29,10 +29,12 @@ const TruckArrivalCard = (props: TruckArrivalCardProps) => {
 
     const onSubmit = () => {
 
-        console.log("submitting")
+
+        const data = {timeSlot: dayjs(formik.values.timeSlot).format('YYYY-MM-DD HH:mm:ss')};
+        console.log("submitting", data)
         updateAppointment({
             appointmentId: appointment.id,
-            updatedAppointmentData: {timeSlot: dayjs(formik.values.timeSlotStart).format('YYYY-MM-DD HH:mm:ss')},
+            updatedAppointmentData: data,
         });
 
     }
@@ -145,7 +147,7 @@ const TruckArrivalCard = (props: TruckArrivalCardProps) => {
                 justifyContent: "space-between"
             }}>
                 <Typography sx={{fontWeight: "bold"}}
-                            variant={"caption"}>Scheduled: {dayjs(appointment.timeSlotStart).format("D/MM/YYYY HH:00")}</Typography>
+                            variant={"caption"}>Scheduled: {dayjs(appointment.timeSlot).format("D/MM/YYYY HH:00")}</Typography>
             </Stack>
             <Stack>
                 <ListItemText
