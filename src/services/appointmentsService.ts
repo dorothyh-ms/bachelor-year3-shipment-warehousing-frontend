@@ -16,6 +16,6 @@ export async function createAppointment(appointment: NewAppointment) : Promise<N
 
 
 export async function updateAppointment( appointmentId : string, appointmentUpdate: UpdateAppointment) : Promise<Appointment>   {
-    const {data: updatedAppointment} = await axiosApi.patch<Appointment>(`/appointments/${appointmentId}`, appointmentUpdate);
+    const {data: updatedAppointment} = await axiosApi.patch<Appointment>(`/schedules/${appointmentId}`, appointmentUpdate);
     return updatedAppointment;
 }

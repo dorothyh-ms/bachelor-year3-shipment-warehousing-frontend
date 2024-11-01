@@ -1,5 +1,5 @@
 // import './App.css'
-import {createBrowserRouter, createRoutesFromElements, Route} from "react-router-dom";
+import {createBrowserRouter, createRoutesFromElements, Navigate, Route} from "react-router-dom";
 import MainLayout from "./layouts/MainLayout.tsx";
 import {RouterProvider} from "react-router";
 
@@ -27,9 +27,14 @@ const router = createBrowserRouter(
             <Route element={<MainLayout/>}>
                 <Route path={TRUCKS} element={<TruckArrivalsPage/>}/>
                 <Route path={CREATE_APPOINTMENT} element={<CreateAppointmentPage/>}/>
+                <Route index path="/" element={<WarehousesPage/>}/>
                 <Route index path={WAREHOUSES} element={<WarehousesPage/>}/>
                 <Route path={WAREHOUSES+"/:id"} element={<WarehouseDetailPage/>}/>
                 <Route path={PURCHASE_ORDERS} element={<PurchaseOrdersPage/>}/>
+                <Route
+                    path="*"
+                    element={<Navigate to={WAREHOUSES} replace />}
+                />
             </Route>
         </Route>
 

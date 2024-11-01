@@ -31,8 +31,8 @@ const PurchaseOrdersPage = () => {
 
     const renderPurchaseOrderStats = (purchaseOrders: PurchaseOrder[]) => {
         return <Stack direction={"column"} sx={{ gap: 0.5}} >
-            <Typography variant={"subtitle1"} >Fulfilled: {purchaseOrders.filter(po => po.status === "FULFILLED").length}</Typography>
-            <Typography variant={"subtitle1"} >Outstanding: {purchaseOrders.filter(po => po.status === "OUTSTANDING").length}</Typography>
+            <Typography variant={"subtitle1"} >Fulfilled: {purchaseOrders.filter(po => po.status == "FULFILLED").length}</Typography>
+            <Typography variant={"subtitle1"} >Outstanding: {purchaseOrders.filter(po => po.status == "OUTSTANDING").length}</Typography>
         </Stack>
     }
 

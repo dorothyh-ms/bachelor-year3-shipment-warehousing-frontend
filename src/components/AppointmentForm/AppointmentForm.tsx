@@ -43,7 +43,10 @@ const AppointmentForm = () => {
 
     const onSubmit = (values: NewAppointment, actions: FormikHelpers<NewAppointment>) => {
         actions.resetForm();
-        createAppointment(values);
+        createAppointment({
+            ...values,
+            timeSlot: dayjs(values.timeSlot).format("YYYY-MM-DD HH:mm:ss")
+        });
         navigate("/trucks")
     }
 
